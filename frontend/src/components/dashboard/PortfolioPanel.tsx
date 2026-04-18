@@ -84,7 +84,7 @@ const PortfolioPanel = () => {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="space-y-4">
       {/* Summary cards — these use currency toggle */}
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
         <div className="bg-card rounded-xl border border-border p-4">
           <p className="text-xs text-muted-foreground">Invested</p>
           <p className="text-lg font-bold font-mono text-foreground">{formatCurrency(totalInvested, currency)}</p>
@@ -110,9 +110,9 @@ const PortfolioPanel = () => {
           <p className="text-sm">Browse markets and buy stocks to build your portfolio</p>
         </div>
       ) : (
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
           {/* Holdings grouped by market */}
-          <div className="col-span-2 space-y-5">
+          <div className="xl:col-span-2 space-y-5">
             {sectionMeta.map((section) => {
               const stocks = grouped[section.key];
               if (!stocks || stocks.length === 0) return null;

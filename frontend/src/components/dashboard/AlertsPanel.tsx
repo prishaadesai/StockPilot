@@ -15,8 +15,8 @@ const AlertsPanel = () => {
     <div className="space-y-8 animate-in fade-in duration-500 pb-20">
       {/* Header */}
       <div className="flex flex-col gap-2">
-        <h1 className="text-3xl font-bold text-foreground flex items-center gap-3">
-          <Bell className="h-8 w-8 text-primary" /> Price Alerts
+        <h1 className="text-xl sm:text-3xl font-bold text-foreground flex items-center gap-3">
+          <Bell className="h-6 w-6 sm:h-8 sm:w-8 text-primary" /> Price Alerts
         </h1>
         <p className="text-muted-foreground">Manage your active targets and review your triggered price history.</p>
       </div>

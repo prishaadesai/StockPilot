@@ -77,7 +77,7 @@ const AIChatbot = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => setOpen(true)}
-            className="fixed bottom-6 right-6 h-16 w-16 rounded-2xl bg-primary shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-primary/20 flex items-center justify-center z-50 group overflow-hidden"
+            className="fixed bottom-20 right-4 md:bottom-6 md:right-6 h-14 w-14 md:h-16 md:w-16 rounded-2xl bg-primary shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-primary/20 flex items-center justify-center z-40 group overflow-hidden"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary/80 to-primary/50 opacity-0 group-hover:opacity-100 transition-opacity" />
             <MessageSquare className="h-7 w-7 text-primary-foreground relative z-10" />
@@ -94,7 +94,7 @@ const AIChatbot = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 30, scale: 0.9 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="fixed bottom-6 right-6 w-[420px] h-[650px] bg-card/95 backdrop-blur-xl border border-border/50 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] flex flex-col z-50 overflow-hidden"
+            className="fixed bottom-0 right-0 md:bottom-6 md:right-6 w-full md:w-[420px] h-[100dvh] md:h-[650px] bg-card/95 backdrop-blur-xl border border-border/50 md:rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] flex flex-col z-50 overflow-hidden"
           >
             {/* Header */}
             <div className="px-6 py-5 border-b border-white/5 bg-primary/[0.03] flex items-center justify-between shrink-0">

@@ -138,14 +138,14 @@ const StockChart = () => {
           <span className="text-sm text-muted-foreground">Loading {sym}...</span>
         </div>
       ) : detail ? (
-        <div className="flex items-start justify-between mb-4">
+        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4 gap-3">
           <div>
-            <div className="flex items-center gap-3">
-              <h2 className="text-xl font-bold text-foreground">{detail.sym}</h2>
-              <span className="text-sm text-muted-foreground">{detail.name}</span>
+            <div className="flex items-center gap-2 flex-wrap">
+              <h2 className="text-lg sm:text-xl font-bold text-foreground">{detail.sym}</h2>
+              <span className="text-xs sm:text-sm text-muted-foreground truncate max-w-[160px]">{detail.name}</span>
             </div>
-            <div className="flex items-center gap-3 mt-1">
-              <span className="text-2xl font-bold font-mono text-foreground">
+            <div className="flex items-center gap-2 mt-1 flex-wrap">
+              <span className="text-xl sm:text-2xl font-bold font-mono text-foreground">
                 {cs}{detail.price.toLocaleString(undefined, { minimumFractionDigits: 2 })}
               </span>
               <span className={`text-sm font-semibold ${isUp ? 'text-stock-green' : 'text-stock-red'}`}>
@@ -154,7 +154,7 @@ const StockChart = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-3 gap-x-6 gap-y-1 text-xs">
+          <div className="hidden sm:grid grid-cols-3 gap-x-6 gap-y-1 text-xs">
             <div><span className="text-muted-foreground">Open</span> <span className="font-mono text-foreground ml-1">{detail.open.toFixed(2)}</span></div>
             <div><span className="text-muted-foreground">High</span> <span className="font-mono text-foreground ml-1">{detail.high.toFixed(2)}</span></div>
             <div><span className="text-muted-foreground">Low</span> <span className="font-mono text-foreground ml-1">{detail.low.toFixed(2)}</span></div>
@@ -170,13 +170,13 @@ const StockChart = () => {
         </div>
       )}
 
-      <div className="flex items-center justify-between mb-4">
-        <div className="flex gap-1 bg-secondary/30 p-1 rounded-lg">
+      <div className="flex items-center justify-between mb-4 gap-2">
+        <div className="flex gap-1 bg-secondary/30 p-1 rounded-lg overflow-x-auto">
           {timeframes.map((t, i) => (
             <button
               key={t.label}
               onClick={() => setTf(i)}
-              className={`px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${
+              className={`px-2 sm:px-3 py-1.5 rounded-md text-xs font-medium transition-colors shrink-0 ${
                 tf === i ? 'bg-primary text-primary-foreground shadow-sm' : 'text-muted-foreground hover:bg-secondary'
               }`}
             >
@@ -185,25 +185,26 @@ const StockChart = () => {
           ))}
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 shrink-0">
           <Button 
             variant="outline" 
             size="sm" 
-            className="h-8 gap-2 text-xs text-muted-foreground border-border/50 bg-secondary/30 hover:bg-secondary"
+            className="h-8 gap-1 text-xs text-muted-foreground border-border/50 bg-secondary/30 hover:bg-secondary px-2"
             onClick={() => setIsAlertModalOpen(true)}
           >
-            <Bell className="h-3 w-3 text-stock-yellow" /> Alert
+            <Bell className="h-3 w-3" />
+            <span className="hidden sm:inline">Alert</span>
           </Button>
           <Button 
             size="sm" 
-            className="h-8 text-xs bg-stock-red hover:bg-stock-red/90 text-white border-0 shadow-lg shadow-stock-red/20 transition-all active:scale-95 px-4 font-bold rounded-lg"
+            className="h-8 text-xs bg-stock-red hover:bg-stock-red/90 text-white border-0 shadow-lg shadow-stock-red/20 transition-all active:scale-95 px-3 font-bold rounded-lg"
             onClick={() => { if (detail) setTradeModalConfig({ isOpen: true, type: 'sell' }); }}
           >
             Sell
           </Button>
           <Button 
             size="sm" 
-            className="h-8 text-xs bg-stock-green hover:bg-stock-green/90 text-white border-0"
+            className="h-8 text-xs bg-stock-green hover:bg-stock-green/90 text-white border-0 px-3"
             onClick={() => { if (detail) setTradeModalConfig({ isOpen: true, type: 'buy' }); }}
           >
             Buy

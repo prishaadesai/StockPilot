@@ -33,17 +33,17 @@ const NewsPanel = () => {
   return (
     <div className="space-y-10 animate-in fade-in duration-500 pb-32">
       {/* Premium Hero Section */}
-      <div className="relative overflow-hidden bg-primary/5 rounded-[2rem] border border-primary/10 p-8 md:p-12">
-        <div className="absolute top-0 right-0 p-8 opacity-10">
-          <BookOpen className="h-48 w-48 text-primary" />
+      <div className="relative overflow-hidden bg-primary/5 rounded-2xl md:rounded-[2rem] border border-primary/10 p-5 md:p-12">
+        <div className="absolute top-0 right-0 p-4 md:p-8 opacity-10">
+          <BookOpen className="h-24 w-24 md:h-48 md:w-48 text-primary" />
         </div>
         
-        <div className="relative z-10 max-w-2xl space-y-6">
+        <div className="relative z-10 max-w-2xl space-y-4 md:space-y-6">
           <div className="space-y-2">
-            <h1 className="text-4xl md:text-5xl font-extrabold text-foreground tracking-tight">
+            <h1 className="text-2xl md:text-5xl font-extrabold text-foreground tracking-tight">
               Intelligence <span className="text-primary italic">Terminal</span>
             </h1>
-            <p className="text-muted-foreground text-lg leading-relaxed">
+            <p className="text-muted-foreground text-sm md:text-lg leading-relaxed">
               Real-time Market News, curated from global verified sources. Read full-text articles directly in StockPilot.
             </p>
           </div>
